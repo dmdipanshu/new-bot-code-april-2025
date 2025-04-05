@@ -10,9 +10,11 @@ import random
 
 VALID_REDEEM_CODES = {}
 
+# Updated generate_code function
 def generate_code(length=8):
     letters_and_digits = string.ascii_letters + string.digits
-    return ''.join(random.choice(letters_and_digits) for _ in range(length))
+    code = ''.join(random.choice(letters_and_digits) for _ in range(length))
+    return f"@filmytak_{code}"
 
 @Client.on_message(filters.command("add_redeem") & filters.user(ADMINS))
 async def add_redeem_code(client, message):
@@ -44,8 +46,8 @@ Aᴍᴏᴜɴᴛ:</b> {num_codes}
 
         keyboard = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("♻️ Redeem Here ♻️", url="http://t.me/NehaTestBot")],
-                [InlineKeyboardButton("❕ Any Query ❕", url="https://t.me/IM_JISSHU")]
+                [InlineKeyboardButton("♻️ Redeem Here ♻️", url="http://t.me/filmytakXbot")],
+                [InlineKeyboardButton("❕ Any Query ❕", url="https://t.me/paidcontactbot")]
             ]
         )
 
